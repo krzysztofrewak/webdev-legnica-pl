@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>webdev.legnica || legnickie spotkania webdevowe</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway&amp;subset=greek,latin">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Megrim&amp;subset=greek,latin,latin-ext">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.css">
+		<link rel="stylesheet" href="styles/style.css">
+	</head>
+
+	<body>
+		<div class="content" id="application">
+			<div class="landing page">
+				<h1>webdev.legnica</h1>
+				<h2>legnickie spotkania webdevowe</h2>
+				<h3>
+					<strong>meetup technologiczny</strong>
+					dla programistów z Legnicy i okolic
+				</h3>
+			</div>
+
+			<div class="about page">
+				<h2 class="header">idea</h2>
+				<p>Chcemy organizować cykliczne spotkania w Legnicy, na których chętne osoby prezentowałyby w dowolnej formie swoje doświadczenia i przemyślenia w dziedzinie programowania aplikacji internetowych. Webdevelopment jest na tyle szeroką domeną, że każdy powinien znaleźć coś dla siebie: od programowania backendu w PHP, C# czy Javie i projektowania frontendu, przez testowanie aplikacji, ciekawostki technologiczne czy szeroko rozumiany devops, a na sprawach okołoprogramistycznych i umiejętnościach miękkich skończywszy.</p>
+				<p>Spotkania mają być dostępne dla każdego chętnego, bez względu na stopień doświadczenia zawodowego czy wykorzystywaną technologię. Celujemy w formę dwóch lub trzech 30-45 minutowych prezentacji organizowanych (w zależności od zainteresowania) co kilka miesięcy.</p>
+				<p>Po więcej informacji zapraszamy na dedykowaną grupę na <a href="https://www.facebook.com/groups/514485826037969" target="_blank">Facebooku</a>.</p>
+			</div>
+
+			<div class="page" id="agenda" v-if="upcomingMeetup">
+				<h2 class="header">najbliższe spotkanie</h2>
+				<div class="agenda">
+					<div class="agenda item" v-for="topic in upcomingMeetup.agenda" :class="{ insignificant: !topic.significant }">
+						<div class="date">{{ topic.date }}</div>
+						<div class="author" v-if="topic.speaker">{{ topic.speaker }}, {{ topic.company }}</div>
+						<div class="title">{{ topic.title }}</div>
+						<p v-if="topic.about">{{ topic.about }}</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="page" v-if="allTopics.length > 0">
+				<h2 class="header">indeks tematów</h2>
+				<p></p>
+				<table class="topics">
+					<thead>
+						<tr>
+							<th>tytuł</th>
+							<th>prelegent</th>
+							<th>spotkanie</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr v-for="topic in allTopics">
+							<td>{{ topic.title }}</td>
+							<td>{{ topic.speaker }}</td>
+							<td>{{ topic.meetup }}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<div class="page" v-if="patrons.length > 0">
+				<h2 class="header">patroni i sponsorzy</h2>
+				<div class="patrons">
+					<img v-for="patron in patrons" class="patron" :src="patron.logo" :alt="patron.name">
+				</div>
+			</div>
+		</div>
+		<div class="map" id="map-landing"></div>
+	</body>
+
+	<script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/moment.min.js"></script>
+	<script src="resources/patrons.js"></script>
+	<script src="resources/meetups.js"></script>
+	<script src="scripts/application.js"></script>
+	<script src="scripts/particles.js"></script>
+</html>
+
