@@ -63,7 +63,9 @@
 			<div class="page" v-if="patrons.length > 0">
 				<h2 class="header">patroni i sponsorzy</h2>
 				<div class="patrons">
-					<img v-for="patron in patrons" class="patron" :src="patron.logo" :alt="patron.name">
+					<a :href="patron.url" v-for="patron in patrons" class="patron" target="_blank">
+						<img :src="patron.logo" :alt="patron.name">
+					</a>
 				</div>
 			</div>
 		</div>
