@@ -4,6 +4,7 @@ new Vue({
 	el: "#application",
 	data() {
 		return {
+			about: "",
 			patrons: [],
 			meetups: [],
 			allTopics: [],
@@ -11,18 +12,20 @@ new Vue({
 		}
 	},
 	mounted() {
-		this.patrons = patrons
-		this.meetups = meetups
-
-		if(this.meetups) {
-			this.upcomingMeetup = this.meetups[0]
-		}
-
-		this.meetups.forEach(meetup => {
-			meetup.agenda.filter(meetup => meetup.significant).forEach(topic => {
-				topic.meetup = meetup.number
-				this.allTopics.push(topic)
-			})
+		fetch("./resources/about.md").then(result => result.text()).then(text => {
+			let markdown = new showdown.Converter()
+			this.about = markdown.makeHtml(text)
 		})
+
+		fetch("./resources/meetups.json").then(result => result.json()).then(meetups => {
+			for(meetup of meetups) {
+				meetup.collapsed = true
+			}
+			meetups[0].collapsed = false
+
+			this.meetups = meetups
+		})
+
+		this.patrons = patrons
 	},
 })

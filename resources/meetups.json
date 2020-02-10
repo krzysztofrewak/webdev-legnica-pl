@@ -1,0 +1,44 @@
+[
+	{
+		"name": "webdev.legnica #2",
+		"date": "2020-02-20 19:00:00",
+		"talks": [
+			{
+				"title": "Jak sprawić żeby robota zrobiła się sama? Słów kilka o testach z wykorzystaniem biblioteki Selenium",
+				"author": "Marcin Kebłesz",
+				"company": "Fingo",
+				"description": "Czy kiedykolwiek, wprowadzając (wydawałoby się) drobne zmiany do kodu, rozwaliłeś połowę aplikacji? Obstawiam, że tak ;) I tu z pomocą przychodzą testy regresji, które z powodzeniem napiszemy w Robot Framework."
+			},
+			{
+				"title": "Drugi temat zostanie wkrótce ogłoszony",
+				"author": "",
+				"company": "",
+				"description": ""
+			}
+		]
+	},
+	{
+		"name": "webdev.legnica #1",
+		"date": "2019-11-30 19:00:00",
+		"talks": [
+			{
+				"title": "Wierszyki i ogórki - wstęp do Behata",
+				"author": "Krzysztof Rewak",
+				"company": "ITMdevlabs",
+				"description": "Behat to opensourcowy pehapowy framework do testowania oprogramowania. Dzięki niemu wdrożenie techniki Behaviour-Driven Development może być bajecznie proste. Opowiem czym jest Gherkin, co można z nim testować i jak takie podejście pomaga w rozwijaniu projektu."
+			},
+			{
+				"title": "Event Storming - od zdarzenia do zrozumienia",
+				"author": "Maciej Czerpiński",
+				"company": "Kodebyraaet",
+				"description": "Opowiem czym jest Event Storming i kiedy można go stosować. Poznacie magię pomarańczowej karteczki, która pomoże odczarować barierę komunikacyjną między IT a biznesem."
+			},
+			{
+				"title": "Design sprint",
+				"author": "Daniel Mazurkiewicz",
+				"company": "ITMdevlabs",
+				"description": "Lightning talk o sprawdzeniu w pięć dni czy projekt nada się do realizacji."
+			}
+		]
+	}
+]

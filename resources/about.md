@@ -1,0 +1,5 @@
+Organizujemy cykliczne spotkania w Legnicy, na których chętne osoby prezentują w dowolnej formie swoje doświadczenia i przemyślenia w dziedzinie programowania aplikacji internetowych. Webdevelopment jest na tyle szeroką domeną, że każdy powinien znaleźć coś dla siebie: od programowania backendu w PHP, C# czy Javie i projektowania frontendu, przez testowanie aplikacji, ciekawostki technologiczne czy szeroko rozumiany devops, a na sprawach okołoprogramistycznych i umiejętnościach miękkich skończywszy.
+
+Spotkania są dostępne dla każdego chętnego, bez względu na stopień doświadczenia zawodowego czy wykorzystywaną technologię. Celujemy w formę dwóch lub trzech 30-45 minutowych prezentacji organizowanych (w zależności od zainteresowania) raz na kwartał.
+
+Po więcej informacji zapraszamy na dedykowaną grupę na [**Facebooku**](https://www.facebook.com/groups/webdevlegnica/).

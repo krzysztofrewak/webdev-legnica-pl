@@ -1,40 +1,41 @@
 html, body {
     padding: 0;
     margin: 0;
+    font-family: "Open Sans", serif;
+    font-weight: lighter;
+    overflow: hidden;
 }
 
 body {
     display: flex;
     flex-direction: row;
-    font-family: "Raleway", serif;
-    overflow: hidden;
 }
 
 a {
     color: inherit;
-    text-decoration: none;
     font-weight: bolder;
+    text-decoration: none;
 }
 
-h1, h2, h3 {
-    opacity: .85;
+h2 {
+    font-size: 1.66em;
     font-weight: normal;
 }
 
-h2.header {
-    opacity: .25;
-    font-family: "Raleway", serif;
-    font-size: 1.5em;
-    margin-left: 2em;
-    font-weight: bold;
+h2:not(:first-of-type) {
+    margin-top: 2em;
 }
 
-.content {
-    flex: 2;
+.clickable {
+    cursor: pointer;
+}
+
+#application {
+    flex: 10;
     height: 100vh;
 }
 
-.map {
+#map {
     flex: 1;
     background: #fec611;
     background: url("../assets/lca.png");
@@ -43,122 +44,124 @@ h2.header {
     overflow: hidden;
 }
 
-.page {
+#header {
+    font-family: "Megrim", serif;
+    font-size: 2.66em;
+    padding: .66em 1em;
+    font-weight: bolder;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+#header > div {
+    padding-bottom: 8px;
+}
+
+#header .subtitle {
+    font-size: .66em;
+    margin-left: .66em;
+    opacity: .66;
+}
+
+#header .links {
+    flex-grow: 1;
+    text-align: right;
+    font-size: .66em;
+    margin-left: .66em;
+    opacity: .66;
+}
+
+#content {
     min-height: 100vh;
     display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    flex-direction: column;
-    font-size: 1.5em;
+    flex-direction: column-reverse;
+}
+
+#content > div {
+    flex: 1;
     padding: 0 3em;
 }
 
-.page:nth-child(even) {
-    background: #f9f9f9;
-}
-
-.landing {
-    font-family: "Megrim", serif;
-    position: relative;
-    align-items: center;
-    text-align: center;
-    height: 100vh;
-}
-
-.landing strong {
-    display: block;
-}
-
-.landing h1 {
-    font-size: 3em;
-}
-
-.landing h2 {
-    font-size: 2em;
-}
-
-.page > p {
-    padding: 0 1em;
-    font-size: .8em;
-    text-align: justify;
-    text-indent: 2.5em;
-    line-height: 1.5em;
-}
-
-.agenda {
-    align-items: flex-start;
-    align-content: flex-start;
-    justify-content: flex-start;
-}
-
-.agenda.item {
-    margin: 1em 3em;
-    padding: .33em 2em;
-    font-weight: normal;
-    border-left: .33em #fec611 solid;
-}
-
-.agenda.item.insignificant {
-    opacity: .75;
-}
-
-.agenda.item .date {
-    font-size: .8em;
-    opacity: .66;
-    padding-right: .66em;
-    display: inline;
-}
-
-.agenda.item .author {
-    font-size: .8em;
-    opacity: .66;
-    display: inline;
-}
-
-.agenda.item .title {
-    padding-top: .5em;
-}
-
-.agenda.item p {
-    font-size: .75em;
-    padding: 0 1em;
-}
-
-.topics {
-    margin-top: 1.5em;
-    font-size: .75em;
-    width: 100%;
-}
-
-.topics td, th {
-    text-align: left;
-    line-height: 1.5em;
-}
-
-.patrons {
+#patrons {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1em;
     width: 100%;
 }
 
-.patron > img {
+#patrons img {
     width: 160px;
     padding: 0 2em;
 }
 
-.pagination {
-    position: fixed;
-    color: #fec611;
-    padding: .33em;
+.meetup:not(:first-of-type) {
+    margin-top: 2em;
 }
 
-.pagination i {
-    display: block;
-    padding-bottom: .33em;
+.meetup .name {
+    font-weight: normal;
+    line-height: 2em;
+    font-size: 1.25em;
+}
+
+.meetup .date {
+    font-weight: normal;
+    opacity: .66;
+    font-size: .75em;
+}
+
+.meetup .talk {
+    padding: .33em 0;
+}
+
+.meetup .title {
+    font-weight: bold;
+    display: inline;
+}
+
+.meetup .description {
+    padding: 1em;
+}
+
+.meetup .author {
+    opacity: .66;
+    display: inline;
 }
 
 .simplebar-scrollbar::before {
     background: #fec611;
+}
+
+#footer {
+    padding: 3em 1em 1em;
+    font-size: .85em;
+    opacity: .5;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+#footer > a {
+    margin-left: 1em;
+}
+
+@media (min-width: 1280px) {
+    #application {
+        flex: 3;
+    }
+
+    #header {
+        flex-direction: row;
+        text-align: left;
+    }
+
+    #header > div {
+        padding-bottom: 0;
+    }
+
+    #content {
+        flex-direction: row;
+    }
 }

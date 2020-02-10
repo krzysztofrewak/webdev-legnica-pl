@@ -1,7 +1,7 @@
 let options = {
 	"particles": {
 		"number": {
-			"value": 144,
+			"value": 192,
 		},
 		"size": {
 			"value": 3,
@@ -22,5 +22,4 @@ let options = {
 	"retina_detect": true,
 }
 
-particlesJS("map-landing", options)
-particlesJS("map-agenda", options)
+particlesJS("map", options)
