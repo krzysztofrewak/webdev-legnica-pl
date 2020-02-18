@@ -4,16 +4,16 @@
 		"date": "2020-02-20 19:00:00",
 		"talks": [
 			{
-				"title": "Jak sprawić żeby robota zrobiła się sama? Słów kilka o testach z wykorzystaniem biblioteki Selenium",
+				"title": "Jak sprawić żeby robota zrobiła się sama?",
 				"author": "Marcin Kebłesz",
 				"company": "Fingo",
 				"description": "Czy kiedykolwiek, wprowadzając (wydawałoby się) drobne zmiany do kodu, rozwaliłeś połowę aplikacji? Obstawiam, że tak ;) I tu z pomocą przychodzą testy regresji, które z powodzeniem napiszemy w Robot Framework."
 			},
 			{
-				"title": "Drugi temat zostanie wkrótce ogłoszony",
-				"author": "",
-				"company": "",
-				"description": ""
+				"title": "Live coding: B jak Blazor",
+				"author": "Przemysław Srokowski, Michał Wołyniec",
+				"company": "ITMdevlabs",
+				"description": "Kolejny raz napisałeś == zamiast ===? Chcesz mieć twarde typowanie zamiast nie wiadomo czego, a TypeScript Ci nie odpowiada? Masz dość npm? Lekkiem na wszystkie te przypadłości może być Blazor?"
 			}
 		]
 	},
