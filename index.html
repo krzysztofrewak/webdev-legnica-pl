@@ -1,79 +1,346 @@
-<!DOCTYPE html>
 <html lang="pl">
-	<head>
-		<title>webdev.legnica || legnickie spotkania webdevowe</title>
-		<meta charset="utf-8">
-		<link href="https://fonts.googleapis.com/css?family=Open+Sans&amp;subset=greek,latin" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Megrim&amp;subset=greek,latin,latin-ext" rel="stylesheet">
-		<link href="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.css" rel="stylesheet">
-		<link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/icon.min.css" rel="stylesheet">
-		<link href="styles/style.css" rel="stylesheet">
-	</head>
+    <head>
+        <title>webdev.legnica</title>
+        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <div class="bg-white">
+            <div class="relative pb-32 bg-gray-800">
+                <div class="absolute inset-0">
+                    <img class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80" alt="">
+                    <div class="absolute inset-0 bg-gray-700 mix-blend-multiply" aria-hidden="true"></div>
+                </div>
+                <div class="relative max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8">
+                    <h1 class="text-4xl font-extrabold tracking-tight text-white md:text-5xl lg:text-6xl">webdev.legnica</h1>
+                    <p class="mt-2 max-w-3xl text-2xl text-gray-300">Legnicki meetup technologiczny</p>
+                </div>
+            </div>
 
-	<body>
-		<div id="application">
-			<div id="header">
-				<div>webdev.legnica</div>
-				<div class="subtitle">legnickie spotkania webdevowe</div>
-				<div class="links">
-					<a href="https://www.facebook.com/groups/webdevlegnica/" target="_blank">
-						<i class="facebook icon"></i>
-					</a>
-					<a href="https://crossweb.pl/wyszukiwarka?fraza=webdev.legnica" target="_blank">
-						<i class="crosshairs icon"></i>
-					</a>
-				</div>
-			</div>
-			<div id="content">
-				<div class="about">
-					<h2>o meetupie</h2>
-					<div v-html="about"></div>
+            <section class="-mt-32 max-w-7xl mx-auto relative z-10 pb-32 px-4 sm:px-6 lg:px-8" aria-labelledby="contact-heading">
+                <div class="grid grid-cols-1 gap-y-20 lg:grid-cols-3 lg:gap-y-0 lg:gap-x-8">
+                    <div class="flex flex-col bg-white rounded-2xl shadow-xl">
+                        <div class="flex-1 relative pt-16 px-6 pb-8 md:px-8">
+                            <div class="absolute top-0 p-5 inline-block bg-indigo-600 rounded-xl shadow-lg transform -translate-y-1/2">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-medium text-gray-900">O co chodzi?</h3>
+                            <p class="mt-4 text-base text-gray-500">Organizujemy cykliczne spotkania w Legnicy, na których chętne osoby prezentują w dowolnej formie swoje doświadczenia i przemyślenia w dziedzinie programowania aplikacji internetowych. Celujemy w formę dwóch lub trzech 30-45 minutowych prezentacji organizowanych (w zależności od zainteresowania) raz na kwartał.</p>
+                        </div>
+                    </div>
 
-					<h2>patroni i sponsorzy</h2>
-					<div id="patrons">
-						<a :href="patron.url" v-for="patron in patrons" class="patron" target="_blank">
-							<img :src="patron.logo" :alt="patron.name">
-						</a>
-					</div>
-				</div>
-				<div class="meetups">
-					<h2>spotkania i prezentacje</h2>
-					<div class="meetup" v-for="meetup in meetups">
-						<div class="name">
-							<span class="caret" @click="meetup.collapsed = !meetup.collapsed">
-								<i class="clickable caret icon" :class="{ right: meetup.collapsed, down: !meetup.collapsed }"></i>
-							</span>
-							{{ meetup.name }}
-							<span class="date">{{ meetup.date }}</span>
-						</div>
-						<div v-for="talk in meetup.talks" class="talk" v-if="!meetup.collapsed">
-							<div class="title">{{ talk.title }}</div>
-							<div class="author" v-if="talk.author">
-								{{ talk.author }}, {{ talk.company }}
-							</div>
-							<div class="description" v-if="talk.description">{{ talk.description }}</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div id="footer">
-				2020 &copy; Krzysztof Rewak
-				<a href="https://github.com/krzysztofrewak/" target="_blank">
-					<i class="big github icon"></i>
-				</a>
-			</div>
-		</div>
-		<div id="map"></div>
-	</body>
+                    <div class="flex flex-col bg-white rounded-2xl shadow-xl">
+                        <div class="flex-1 relative pt-16 px-6 pb-8 md:px-8">
+                            <div class="absolute top-0 p-5 inline-block bg-indigo-600 rounded-xl shadow-lg transform -translate-y-1/2">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-medium text-gray-900">Dla kogo?</h3>
+                            <p class="mt-4 text-base text-gray-500">Nasze spotkania są dostępne dla każdego chętnego, bez względu na stopień doświadczenia zawodowego czy wykorzystywaną technologię. Zapraszamy programistów grafików, administratorów, devopsów, studentów kierunków informatycznych oraz pasjonatów i hobbystów.</p>
+                        </div>
+                    </div>
 
-	<script src="https://cdn.jsdelivr.net/npm/showdown@1.9.1/dist/showdown.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-	<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/moment.min.js"></script>
-	<script src="resources/patrons.js"></script>
-	<script src="resources/meetups.json"></script>
-	<script src="scripts/application.js"></script>
-	<script src="scripts/particles.js"></script>
+                    <div class="flex flex-col bg-white rounded-2xl shadow-xl">
+                        <div class="flex-1 relative pt-16 px-6 pb-8 md:px-8">
+                            <div class="absolute top-0 p-5 inline-block bg-indigo-600 rounded-xl shadow-lg transform -translate-y-1/2">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16l2.879-2.879m0 0a3 3 0 104.243-4.242 3 3 0 00-4.243 4.242zM21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-medium text-gray-900">O czym?</h3>
+                            <p class="mt-4 text-base text-gray-500">Webdevelopment jest na tyle szeroką domeną, że każdy powinien znaleźć coś dla siebie: od programowania backendu w PHP, C# czy Javie i projektowania frontendu, przez testowanie aplikacji, ciekawostki technologiczne czy szeroko rozumiany devops, a na sprawach okołoprogramistycznych i umiejętnościach miękkich skończywszy.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="bg-indigo-50 mb-24">
+            <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-24 lg:px-8 lg:flex lg:items-center lg:justify-between">
+                <h2 class="text-3xl tracking-tight text-gray-900 md:text-4xl">
+                    <span class="font-bold block">Zainteresowany?</span>
+                    <span class="font-extrabold block text-indigo-600">Dołącz do naszego grupy i bądź na bieżąco!</span>
+                </h2>
+                <div class="mt-8 flex lg:mt-0 lg:flex-shrink-0">
+                    <div class="inline-flex rounded-md shadow">
+                        <a href="https://www.facebook.com/groups/webdevlegnica" target="_blank" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-2xl font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">
+                            Dołącz do grupy
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container mx-auto pb-16 px-8" id="meetups">
+            <div class="max-w-4xl mx-auto text-center mb-20">
+                <h2 class="text-3xl font-extrabold sm:text-4xl">
+                    Poprzednie spotkania
+                </h2>
+                <p class="mt-3 text-xl text-gray-600 sm:mt-4">
+                    Lista tematów, które do tej pory zostały poruszone na naszych spotkaniach:
+                </p>
+            </div>
+            <div v-for="meetup in meetups">
+                <div class="lg:flex lg:items-center lg:justify-between pb-6">
+                    <div class="flex-1 min-w-0">
+                        <h2 class="text-xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate">
+                            {{ meetup.name }}
+                        </h2>
+                        <div class="mt-1 flex flex-col sm:flex-row sm:flex-wrap sm:mt-0 sm:space-x-6">
+                            <div class="mt-2 flex items-center text-sm text-gray-500">
+                                <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                    <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+                                </svg>
+                                {{ meetup.date }}
+                            </div>
+                            <div class="mt-2 flex items-center text-sm text-gray-500">
+                                <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                    <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                                </svg>
+                                {{ meetup.place }}
+                            </div>
+                            <div class="mt-2 flex items-center text-sm text-gray-500">
+                                <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path>
+                                </svg>
+                                {{ meetup.notes }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white overflow-hidden sm:rounded-md mb-16">
+                    <ul role="list" class="divide-y divide-gray-200">
+                        <li v-for="presentation in meetup.presentations">
+                            <div class="block">
+                                <div class="flex items-center px-4 py-4 sm:px-6 flex-col md:flex-row">
+                                    <div class="flex items-center">
+                                        <div class="flex-shrink-0 mr-4">
+                                            <img class="h-12 w-12" :src="presentation.icon" alt="">
+                                        </div>
+                                        <div class="w-100 flex md:w-64 flex-col justify-center">
+                                            <p class="text-sm font-medium text-gray-800 truncate flex flex-col">
+                                                    <span v-for="author in presentation.author.split(',')">
+                                                        {{ author }}
+                                                    </span>
+                                            </p>
+                                            <p class="flex items-center text-sm text-gray-500">
+                                                <span class="truncate">{{ presentation.company }}</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="w-full mt-4 md:mt-0">
+                                        <p class="text-sm text-gray-900">
+                                            {{ presentation.title }}
+                                        </p>
+                                        <p class="mt-2 flex items-center text-sm text-gray-500">
+                                            {{ presentation.description }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li v-if="meetup.presentations.length === 0">
+                            <div class="block">
+                                <div class="flex items-center text-sm px-4 py-4 sm:px-6 text-gray-600">
+                                    Brak prezentacji (jeszcze).
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-indigo-50 pt-24" id="photos">
+            <div class="container mx-auto pb-32 px-8">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h2 class="text-3xl font-extrabold sm:text-4xl">
+                        Garść zdjęć
+                    </h2>
+                    <p class="mt-3 text-xl text-gray-600 sm:mt-4">
+                        Kilka fotek z poprzednich edycji meetupów:
+                    </p>
+                </div>
+                <ul role="list" class="mt-10 space-y-12 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 sm:space-y-0 lg:grid-cols-3 lg:gap-x-8">
+                    <li>
+                        <div class="space-y-4">
+                            <div class="aspect-w-3 aspect-h-2">
+                                <img class="object-cover shadow-lg rounded-lg" src="./assets/photos/77001760_1359096557597800_7796733198481752064_n.jpg" alt="">
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="space-y-4">
+                            <div class="aspect-w-3 aspect-h-2">
+                                <img class="object-cover shadow-lg rounded-lg" src="./assets/photos/78310873_1359096250931164_201303901687775232_n.jpg" alt="">
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="space-y-4">
+                            <div class="aspect-w-3 aspect-h-2">
+                                <img class="object-cover shadow-lg rounded-lg" src="./assets/photos/87429238_1438346309672824_5808096712606089216_n.jpg" alt="">
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="bg-indigo-800">
+            <div class="max-w-7xl mx-auto py-12 px-4 sm:py-16 sm:px-6 lg:px-8 lg:py-20">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h2 class="text-3xl font-extrabold text-white sm:text-4xl">
+                        Garść statystyk
+                    </h2>
+                    <p class="mt-3 text-xl text-indigo-200 sm:mt-4">
+                        Wszyscy lubią liczby, więc oto kilka ciekawostek na temat naszej inicjatywy:
+                    </p>
+                </div>
+                <dl class="mt-10 text-center sm:max-w-4xl sm:mx-auto sm:grid sm:grid-cols-5 sm:gap-8">
+                    <div class="flex flex-col">
+                        <dt class="order-2 mt-2 text-lg leading-6 font-medium text-indigo-200">
+                            zorganizowane spotkania
+                        </dt>
+                        <dd class="order-1 text-5xl font-extrabold text-white">
+                            2
+                        </dd>
+                    </div>
+                    <div class="flex flex-col">
+                        <dt class="order-2 mt-2 text-lg leading-6 font-medium text-indigo-200">
+                            arcyciekawych prezentacji
+                        </dt>
+                        <dd class="order-1 text-5xl font-extrabold text-white">
+                            5
+                        </dd>
+                    </div>
+                    <div class="flex flex-col">
+                        <dt class="order-2 mt-2 text-lg leading-6 font-medium text-indigo-200">
+                            litrów wypitego piwa
+                        </dt>
+                        <dd class="order-1 text-5xl font-extrabold text-white">
+                            60
+                        </dd>
+                    </div>
+                    <div class="flex flex-col mt-10 sm:mt-0">
+                        <dt class="order-2 mt-2 text-lg leading-6 font-medium text-indigo-200">
+                            uczestników do tej pory
+                        </dt>
+                        <dd class="order-1 text-5xl font-extrabold text-white">
+                            75+
+                        </dd>
+                    </div>
+                    <div class="flex flex-col mt-10 sm:mt-0">
+                        <dt class="order-2 mt-2 text-lg leading-6 font-medium text-indigo-200">
+                            świeżych pomysłów
+                        </dt>
+                        <dd class="order-1 text-5xl font-extrabold text-white">
+                            &infin;
+                        </dd>
+                    </div>
+                </dl>
+            </div>
+        </div>
+
+        <footer class="bg-white">
+            <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 md:flex md:items-center md:justify-between lg:px-8">
+                <div class="flex justify-center space-x-6 md:order-2">
+                    <a href="https://www.facebook.com/groups/webdevlegnica" target="_blank" class="text-gray-400 hover:text-gray-500">
+                        <span class="sr-only">Facebook</span>
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd"/>
+                        </svg>
+                    </a>
+
+                    <a href="https://github.com/krzysztofrewak/webdev-legnica-pl" target="_blank" class="text-gray-400 hover:text-gray-500">
+                        <span class="sr-only">GitHub</span>
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="mt-8 md:mt-0 md:order-1">
+                    <p class="text-center text-base text-gray-400">
+                        2019-2021 webdev.legnica powered by
+                        <a href="https://blumilk.pl/" target="_blank">Blumilk</a>
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </body>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      new Vue({
+        el: '#meetups',
+        data () {
+          return {
+            meetups: [
+              {
+                name: 'webdev.legnica #3',
+                date: 'do ustalenia',
+                place: 'Legnicki Browar Książecy, Legnica',
+                notes: 'do zobaczenia',
+                presentations: []
+              },
+              {
+                name: 'webdev.legnica #2',
+                date: '20 lutego 2020, 19:00',
+                place: 'Staromiejski Piwowar, Legnica',
+                notes: 'ok. 60 uczestników',
+                presentations: [
+                  {
+                    title: 'Jak sprawić żeby robota zrobiła się sama?',
+                    author: 'Marcin Kebłesz',
+                    company: 'Fingo',
+                    icon: '/assets/logos/fingo.jpeg',
+                    description: 'Czy kiedykolwiek, wprowadzając (wydawałoby się) drobne zmiany do kodu, rozwaliłeś połowę aplikacji? Obstawiam, że tak ;) I tu z pomocą przychodzą testy regresji, które z powodzeniem napiszemy w Robot Framework.'
+                  },
+                  {
+                    title: 'Live coding: B jak Blazor',
+                    author: 'Przemysław Srokowski, Michał Wołyniec',
+                    company: 'WMD Software',
+                    icon: '/assets/logos/wmd.jpeg',
+                    description: 'Kolejny raz napisałeś == zamiast ===? Chcesz mieć twarde typowanie zamiast nie wiadomo czego, a TypeScript Ci nie odpowiada? Masz dość npm? Lekkiem na wszystkie te przypadłości może być Blazor?'
+                  }
+                ]
+              },
+              {
+                name: 'webdev.legnica #1',
+                date: '30 listopada 2019, 19:00',
+                place: 'Staromiejski Piwowar, Legnica',
+                notes: 'ok. 45 uczestników',
+                presentations: [
+                  {
+                    title: 'Wierszyki i ogórki - wstęp do Behata',
+                    author: 'Krzysztof Rewak',
+                    company: 'Blumilk',
+                    icon: '/assets/logos/blumilk.jpeg',
+                    description: 'Behat to opensourcowy pehapowy framework do testowania oprogramowania. Dzięki niemu wdrożenie techniki Behaviour-Driven Development może być bajecznie proste. Opowiem czym jest Gherkin, co można z nim testować i jak takie podejście pomaga w rozwijaniu projektu.'
+                  },
+                  {
+                    title: 'Event Storming - od zdarzenia do zrozumienia',
+                    author: 'Maciej Czerpiński',
+                    company: 'Kodebyraaet',
+                    icon: '/assets/logos/kodebyraaet.png',
+                    description: 'Opowiem czym jest Event Storming i kiedy można go stosować. Poznacie magię pomarańczowej karteczki, która pomoże odczarować barierę komunikacyjną między IT a biznesem.'
+                  },
+                  {
+                    title: 'Design sprint',
+                    author: 'Daniel Mazurkiewicz',
+                    company: 'ITMdevlabs',
+                    icon: '/assets/logos/itmdevlabs.jpeg',
+                    description: 'Lightning talk o sprawdzeniu w pięć dni czy projekt nada się do realizacji.'
+                  }
+                ]
+              },
+            ],
+          }
+        }
+      })
+    </script>
 </html>
-
